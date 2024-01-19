@@ -70,19 +70,43 @@ class Calc {
 
                 case 3:
                     /* Multiply */
-                    ans = Operations.mult();
+                    if (ans != 0) {
+                        System.out.print("Do you want to use the previus result (" + ans
+                                + ")? Type 'y' if yes and something else, if not?\nInput: ");
+                        String use_ans = reader.nextLine();
+
+                        if (use_ans.equals("y")) {
+                            ans = Operations.mult_r(ans);
+                        } else {
+                            ans = Operations.mult();
+                        }
+                    } else {
+                        ans = Operations.mult();
+                    }
                     break;
 
                 case 4:
                     /* Divide */
-                    ans = Operations.div();
-                    break;
+                    if (ans != 0) {
+                        System.out.print("Do you want to use the previus result (" + ans
+                                + ")? Type 'y' if yes and something else, if not?\nInput: ");
+                        String use_ans = reader.nextLine();
 
+                        if (use_ans.equals("y")) {
+                            ans = Operations.div_r(ans);
+                        } else {
+                            ans = Operations.div();
+                        }
+                    } else {
+                        ans = Operations.div();
+                    }
+                    break;
                 case 5:
                     /* Show previus result */
                     System.out.println(ans);
                     break;
                 default:
+                    System.out.println( ANSI_RED + "This is not a valid Input" + ANSI_RESET);
             }
         }
     }
