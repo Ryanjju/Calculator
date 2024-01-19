@@ -1,5 +1,8 @@
 # ReadMe
 
+<details>
+  <summary> Deutsch / German </summary>
+ 
 ### Installation 
 
 * **Downloads:**
@@ -10,36 +13,36 @@
   * Folgen Sie den Anweisungen des JDK-Installers.
   * In VS Code unter _Extensions_ laden Sie das Paket _Extension Pack for Java_ von Microsoft herunter, indem Sie `⇧` + `⌘` + `X` oder `STRG` + `⇧` + `X` drücken und danach suchen.
 
-### Beschreibung des Codes
+### Codebeschreibung
 
 ### Calc.java
 
-* **Importieren der Bibilotheken:**
+* **Importierte Bibliotheken:**
   ```java
     import java.util.Scanner;
   ```
   Die Bibliotheken:
   * _Scanner_ wird für die Eingabeüberwachung verwendet.
 
-* **Text-Farben Definieren:**
+* **Definition von Textfarben:**
   ```java
     public static final String ANSI_RESET = "\u001B[0m"; // Reset color
-    public static final String ANSI_RED = "\u001B[31m"; // Red color
-    public static final String ANSI_GREEN = "\u001B[32m"; // Green Color
+    public static final String ANSI_RED = "\u001B[31m"; // Red
+    public static final String ANSI_GREEN = "\u001B[32m"; // Green
   ```
-* **Scanner eröffenen:**
+* **Erstellen einse neuen Scanner Objektes:**
   ```java
   public static Scanner reader = new Scanner(System.in);
   ```
-  Rufe das Objekt Scanner unter dem Bezeichner _reader_ auf.
+  Das Scanner-Objekt wird unter dem Bezeichner _reader_ zugänglich gemacht.
 
-* **static Float zum Speichern vom Letzten ergebniss:**
+* **Statische Float-Variable zum Speichern des letzten Ergebnisses:**
   ```java
     static float ans;
   ```
-  _ans_ wird am Anfang vomcode als statische Variable definiert, um von überall aus das Ergebniss abzurufen und / oder zu überschrieben bzw. speichern.
+  _ans_ wird am Anfang des Codes als statische Variable definiert, um das Ergebnis von überall abzurufen oder zu überschreiben bzw. zu speichern.
 
-* **Funktion zum beenden des Codes:**
+* **Funktion zum Beenden des Codes:**
   ```java
     static void quit_code() {
       reader.close();
@@ -47,32 +50,32 @@
       System.exit(0);
     }
   ```
-  Die Funktion schließt den Scanner _reader_, giebt eine Bestätigung aus und beendet das Programm mit Exitode 0.
+  Die Funktion schließt das Objekt der Klasse Scanner, _reader_, gibt eine Bestätigung aus und beendet das Programm mit dem Exit-Code 0.
 
-* **While-loop in Static void Methode:**
+* **While-Loop in der static void Methode:**
   ```java
     public static void main(String[] args) {
       int input = 0;
 
-      // Defining the options
+      // Define options
       System.out.println(
         "Please choose one of these options:\n(1) Add\n(2) Subtract\n(3) Multiply\n(4) Divide\n-----\n(9) Quit");
       while (true) {
   ```
-  Da die Datei [Calc.java](/Project/Calc.java) die Main-Datei ist, hat sie eine static void main Funktion. Im folgenden werden dann die möglichen Operationen angegeben, welche genutzt werden können. Im folgenden wird ein While-True-Loop geöffnet welcher die immer neue Eingabe von Befehlen/ dem wählen der Rechenoperation auswählen lässt.
+  Da die Datei [Calc.java](/Project/Calc.java) die Hauptdatei ist, enthält sie eine `static void main` Methode. Im folgenden werden die möglichen Operationen angezeigt, die verwendet werden können. Anschließend wird eine While-True-Schleife geöffnet, die es ermöglicht, fortlaufend Befehle einzugeben bzw. die Rechenoperation auszuwählen.
 
-* **Input Abfrage für Rechenoperation:**
+* **Eingabeaufforderung für die Rechenoperation:**
   ```java
     try {
-      System.out.print("\nInput: ");
-      input = reader.nextInt(); // picking an option
+      System.out.print("\nInput: : ");
+      input = reader.nextInt(); 
     } catch (Exception e) {
       System.out.println(ANSI_RED + e + ANSI_RESET);
     } finally {
-      reader.nextLine(); // clear buffer
+      reader.nextLine(); 
     }
   ```
-  Am Anfang des While-True-Lopps wird ein Try-Catch-Finally Block eingefügt, welcher die Eingabe der Rechenoperation zulässt. Der Try Block ist insofern notwendig, da sonst ein Fehler bei einer anderen Eingabe als einem Integer auftreten würde. Wenn nun aber ein anderer Userinput als ein Integer eingegeben wird, wird nun der Fehler ausgegebn ohne, dass das Programm beendet wird. Im folgenden wird ein finnaly Statement genutzt um den Buffer wieder zu löschen, anderer seits, würde bei einem falschen input nur noch die Ausgabe mit dem Text _Input_ im While-True ausgegebn werden.
+  Am Anfang der While-True-Schleife wird ein Try-Catch-Finally-Block eingefügt, der die Eingabe der Rechenoperation ermöglicht. Der Try-Block ist notwendig, um Fehler bei Eingaben anderer als Integer zu vermeiden. Wenn jedoch eine Eingabe erfolgt, die kein Integer ist, wird der Fehler ausgegeben, ohne dass das Programm beendet wird. Schließlich wird der Puffer gelöscht, um Probleme mit der Eingabe zu vermeiden.
 
 * **Switch-Cases:**
   ```java
@@ -107,7 +110,7 @@
         break;
 
       case 2:
-      /* Subtract */
+        /* Subtract */
         if (ans != 0) {
           System.out.println("Do you want to use the previus result (" + ans
             + ")? Type 'y' if yes and something else, if not?\nInput: ");
@@ -123,7 +126,7 @@
         break;
 
       case 3:
-      /* Multiply */
+        /* Multiply */
         if (ans != 0) {
           System.out.print("Do you want to use the previus result (" + ans
             + ")? Type 'y' if yes and something else, if not?\nInput: ");
@@ -140,7 +143,7 @@
         break;
 
       case 4:
-      /* Divide */
+        /* Divide */
         if (ans != 0) {
           System.out.print("Do you want to use the previus result (" + ans
             + ")? Type 'y' if yes and something else, if not?\nInput: ");
@@ -157,124 +160,186 @@
         break;
 
       case 5:
-      /* Show previus result */
+        /* Show previus result */
         System.out.println(ans);
         break;
-
+  
       default:
         System.out.println( ANSI_RED + "This is not a valid Input" + ANSI_RESET);
     }
   ```
-  Der obige Code zeigt nun die Switch-Abfrage mit den verschienen Cases. Jede Zahl ist in diesem fall eine Ausführung bzw. Zuweisung zum jeweiligen Case, welcher die Operation ausführt. Bei der eingabe von 9 (`case 9:`) wird die oben deifnierte Funktion _`quit_code`_ ausgeführt, welche eben den Code beendet.
-  Case 1 bis 4 führen die Verschiedenen Operationen aus (Addition, Subtraktion, Multiplikation, Division). Dabie wird zuerst geprüft, ob es schon ein vorheriges Ergebniss gab welches eben in der Variable _ans_ (Answer) angegeben wäre, oder ob der Wert der Varibale = 0 ist. Wenn dise der Fall ist, wird der Wert neu gesetzt, welche der Return-Wert der Funktion `add` in [Operations.java](Project/Operations.java) ist.
-Wenn jedoch schon ein wert besteht, sprich `add != 0` wahr ist, wird eine Abfrage getätigt, ob der User mit dem vorherigen Ergebniss weiter rechen will, oder ob er eine neue Berechnung tätigen will, ohne `ans` als Wert.
-Wenn der Benutzer ohne `ans` als Wert vortfahren will, wird die Stadart funktion, wie bei einem Wert von NULL/Null von `ans` vorgegangen. 
-Wenn `y` als Eingabe getätigt wird, wird eine Extra funktion, welcher den Wert von `ans` als mitzugebenen Parameter bei der Eingabe, beim Aufruf verlangt.
-Bei einem Eingabewert von `5` wird lediglich das letzte Ergebniss, als der Werte der Variable `ans` ausgegeben.
+  Der obige Code zeigt die Switch-Abfrage mit den verschiedenen Cases. Jede Zahl ist in diesem Fall eine Ausführung bzw. Zuweisung
 
-### Operations.java 
+</details>
 
-* **Importieren der Bibliotheken:**
+<details>
+  <summary> English / Englisch</summary>
+# ReadMe
+
+### Installation 
+
+* **Downloads:**
+  * JDK: [Java Development Kit](https://www.oracle.com/java/technologies/downloads/#javasejdk)
+  * Visual Studio Code: [Visual Studio Code Download](https://code.visualstudio.com/)
+
+* **Installation:**
+  * Follow the instructions of the JDK installer.
+  * In VS Code, under _Extensions_, download the _Extension Pack for Java_ package from Microsoft by pressing `⇧` + `⌘` + `X` or `CTRL` + `⇧` + `X` and then searching for it.
+
+### Code Description
+
+### Calc.java
+
+* **Imported Libraries:**
   ```java
     import java.util.Scanner;
   ```
-  Wie auch schon in [Calc.java](Project/Calc.java), wird _Scanner_ verwendet um die Benutzereingabe abzufragen.
+  The libraries:
+  * _Scanner_ is used for input monitoring.
 
-* **Variablen & Scanner:**
+* **Definition of Text Colors:**
   ```java
-    public class Operations {
-      // color of text
-      public static final String ANSI_RESET = "\u001B[0m"; // Reset color
-      public static final String ANSI_RED = "\u001B[31m"; // Red color
-
-      private static float result;
-
-      static Scanner reader = new Scanner(System.in);
+    public static final String ANSI_RESET = "\u001B[0m"; // Reset color
+    public static final String ANSI_RED = "\u001B[31m"; // Red color
+    public static final String ANSI_GREEN = "\u001B[32m"; // Green Color
   ```
-  Nachdem die Klasse erstellt wird, werden auch hier wieder nötig Textfarben für die Ausgabe definiert und auch eine Statische Variable `result` für das speichern der Ergebnisse in einer Variable und nicht in einer pro Funktion.
-  Auch ein neues Scanner-Objekt wird erstellt, um auch direkt von der Funktion der Klasse aus, den User-Input abzufragen.
-
-* **Operationen ohne vorherigem Ergebniss:**
+* **Opening the Scanner:**
   ```java
-    public static float add() {
-      try {
-        System.out.print("Number 1: ");
-        float add_int = reader.nextFloat();
+  public static Scanner reader = new Scanner(System.in);
+  ```
+  The Scanner object is made accessible under the identifier _reader_.
 
-        System.out.print("\n\nNumber 2: ");
-        float add_int2 = reader.nextFloat();
+* **Static Float Variable for Storing the Last Result:**
+  ```java
+    static float ans;
+  ```
+  _ans_ is defined as a static variable at the beginning of the code to retrieve, overwrite, or store the result from anywhere.
 
-        result = add_int + add_int2;
+* **Function to Exit the Code:**
+  ```java
+    static void quit_code() {
+      reader.close();
+      System.out.println(ANSI_GREEN + "Program ended with exit code: 0" + ANSI_RESET);
+      System.exit(0);
+    }
+  ```
+  The function closes the _reader_ scanner, prints a confirmation, and exits the program with exit code 0.
 
-        System.out.printf("\n\n%.2f + %.2f = %.2f%n", add_int, add_int2, result);
-      } catch (Exception e) {
-        System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
-      } finally {
-        reader.nextLine(); // clear buffer
-      }
+* **While-Loop in the Static void Method:**
+  ```java
+    public static void main(String[] args) {
+      int input = 0;
 
-    return result;
+      // Defining the options
+      System.out.println(
+        "Please choose one of these options:\n(1) Add\n(2) Subtract\n(3) Multiply\n(4) Divide\n-----\n(9) Quit");
+      while (true) {
+  ```
+  Since the file [Calc.java](/Project/Calc.java) is the main file, it contains a `static void main` method. Here, the possible operations are displayed, followed by a while-true loop that allows continuous input of commands or selection of the arithmetic operation.
+
+* **Input Prompt for Arithmetic Operation:**
+  ```java
+    try {
+      System.out.print("\nInput: ");
+      input = reader.nextInt(); // picking an option
+    } catch (Exception e) {
+      System.out.println(ANSI_RED + e + ANSI_RESET);
+    } finally {
+      reader.nextLine(); // clear buffer
+    }
+  ```
+  At the beginning of the while-true loop, a try-catch-finally block is inserted to enable the input of the arithmetic operation. The try block is necessary to handle errors with inputs other than integers. If an input other than an integer occurs, the error is displayed without ending the program. Finally, the buffer is cleared to avoid issues with input.
+
+* **Switch-Cases:**
+  ```java
+    try {
+      System.out.print("\nInput: ");
+      input = reader.nextInt(); // picking an option
+    } catch (Exception e) {
+      System.out.println(ANSI_RED + e + ANSI_RESET);
+    } finally {
+      reader.nextLine(); // clear buffer
     }
 
-    public static float sub() {
-      try {
-        System.out.print("Number 1: ");
-        float add_int = reader.nextFloat();
+    switch (input) {
+      case 9:
+        quit_code();
+        break;
+      case 1:
+        /* Add */
+        if (ans != 0) {
+          System.out.print("Do you want to use the previous result (" + ans
+            + ")? Type 'y' if yes and something else, if not?\nInput: ");
+          String use_ans = reader.nextLine();
 
-        System.out.print("\n\nNumber 2: ");
-        float add_int2 = reader.nextFloat();
-
-        result = add_int - add_int2;
-
-        System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
-      } catch (Exception e) {
-        System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
-      } finally {
-        reader.nextLine(); // clear buffer
-      }
-
-      return result;
-    }
-
-    public static float mult() {
-      try {
-        System.out.print("Number 1: ");
-        float add_int = reader.nextFloat();
-
-        System.out.print("\n\nNumber 2: ");
-        float add_int2 = reader.nextFloat();
-
-        result = add_int * add_int2;
-
-        System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
-
-        } catch (Exception e) {
-          System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
-        } finally {
-           reader.nextLine(); // clear buffer
+          if (use_ans.equals("y")) {
+            ans = Operations.add_r(ans);
+          } else {
+            ans = Operations.add();
+          }
+        } else {
+          ans = Operations.add();
         }
+        break;
 
-        return result;
-      }
+        case 2:
+          /* Subtract */
+          if (ans != 0) {
+            System.out.println("Do you want to use the previous result (" + ans
+              + ")? Type 'y' if yes and something else, if not?\nInput: ");
+            String use_ans = reader.nextLine();
 
-      public static float div() {
-        try {
-          System.out.print("Number 1: ");
-          float add_int = reader.nextFloat();
+            if (use_ans.equals("y")) {
+              ans = Operations.sub_r(ans);
+            } else {
+              ans = Operations.sub();
+            }
+          }
+          ans = Operations.sub();
+          break;
 
-          System.out.print("\n\nNumber 2: ");
-          float add_int2 = reader.nextFloat();
+          case 3:
+            /* Multiply */
+            if (ans != 0) {
+              System.out.print("Do you want to use the previous result (" + ans
+                + ")? Type 'y' if yes and something else, if not?\nInput: ");
+              String use_ans = reader.nextLine();
 
-          result = add_int / add_int2;
+              if (use_ans.equals("y")) {
+                ans = Operations.mult_r(ans);
+              } else {
+                ans = Operations.mult();
+              }
+            } else {
+              ans = Operations.mult();
+            }
+            break;
 
-          System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
-        } catch (Exception e) {
-          System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
-        } finally {
-          reader.nextLine(); // clear buffer
-        }
+          case 4:
+            /* Divide */
+            if (ans != 0) {
+              System.out.print("Do you want to use the previous result (" + ans
+                + ")? Type 'y' if yes and something else, if not?\nInput: ");
+              String use_ans = reader.nextLine();
 
-        return result;
-      }
+              if (use_ans.equals("y")) {
+                ans = Operations.div_r(ans);
+              } else {
+                ans = Operations.div();
+              }
+            } else {
+              ans = Operations.div();
+            }
+            break;
+
+            case 5:
+              /* Show previous result */
+              System.out.println(ans);
+              break;
+  
+            default:
+              System.out.println( ANSI_RED + "This is not a valid Input" + ANSI_RESET);
+            }
   ```
-
+  The above code shows the switch query with different cases. Each number is an execution or assignment
+</details>
