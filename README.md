@@ -233,46 +233,48 @@ Bei einem Eingabewert von `5` wird lediglich das letzte Ergebniss, als der Werte
         reader.nextLine(); // clear buffer
       }
 
-   xreturn result;
-  }
+      return result;
+    }
 
- public static float mult() {
-try {
-            System.out.print("Number 1: ");
-            float add_int = reader.nextFloat();
+    public static float mult() {
+      try {
+        System.out.print("Number 1: ");
+        float add_int = reader.nextFloat();
 
-            System.out.print("\n\nNumber 2: ");
-            float add_int2 = reader.nextFloat();
+        System.out.print("\n\nNumber 2: ");
+        float add_int2 = reader.nextFloat();
 
-            result = add_int * add_int2;
+        result = add_int * add_int2;
 
-            System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
+        System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
 
         } catch (Exception e) {
-            System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
+          System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
         } finally {
-            reader.nextLine(); // clear buffer
+           reader.nextLine(); // clear buffer
         }
 
         return result;
-    }
+      }
 
-    public static float div() {
+      public static float div() {
         try {
-            System.out.print("Number 1: ");
-            float add_int = reader.nextFloat();
+          System.out.print("Number 1: ");
+          float add_int = reader.nextFloat();
 
-            System.out.print("\n\nNumber 2: ");
-            float add_int2 = reader.nextFloat();
+          System.out.print("\n\nNumber 2: ");
+          float add_int2 = reader.nextFloat();
 
-            result = add_int / add_int2;
+          result = add_int / add_int2;
 
-            System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
+          System.out.printf("\n\n%.2f * %.2f = %.2f%n", add_int, add_int2, result);
         } catch (Exception e) {
-            System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
+          System.out.println(ANSI_RED + "This is not a valid input. Please make a valid one!" + ANSI_RESET);
         } finally {
-            reader.nextLine(); // clear buffer
+          reader.nextLine(); // clear buffer
         }
 
         return result;
-    }
+      }
+  ```
+
