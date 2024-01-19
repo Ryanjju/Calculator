@@ -62,7 +62,7 @@
         "Please choose one of these options:\n(1) Add\n(2) Subtract\n(3) Multiply\n(4) Divide\n-----\n(9) Quit");
       while (true) {
   ```
-  Da die Datei [Calc.java](/Project/Calc.java) die Hauptdatei ist, enthält sie eine `static void main` Methode. Im folgenden werden die möglichen Operationen angezeigt, die verwendet werden können. Anschließend wird eine While-True-Schleife geöffnet, die es ermöglicht, fortlaufend Befehle einzugeben bzw. die Rechenoperation auszuwählen.
+  Da die Datei [Calc.java](/project/Calc.java) die Hauptdatei ist, enthält sie eine `static void main` Methode. Im folgenden werden die möglichen Operationen angezeigt, die verwendet werden können. Anschließend wird eine While-True-Schleife geöffnet, die es ermöglicht, fortlaufend Befehle einzugeben bzw. die Rechenoperation auszuwählen.
 
 * **Eingabeaufforderung für die Rechenoperation:**
   ```java
@@ -235,7 +235,7 @@
         "Please choose one of these options:\n(1) Add\n(2) Subtract\n(3) Multiply\n(4) Divide\n-----\n(9) Quit");
       while (true) {
   ```
-  Since the file [Calc.java](/Project/Calc.java) is the main file, it contains a `static void main` method. Here, the possible operations are displayed, followed by a while-true loop that allows continuous input of commands or selection of the arithmetic operation.
+  Since the file [Calc.java](/project/Calc.java) is the main file, it contains a `static void main` method. Here, the possible operations are displayed, followed by a while-true loop that allows continuous input of commands or selection of the arithmetic operation.
 
 * **Input Prompt for Arithmetic Operation:**
   ```java
